@@ -16,20 +16,37 @@ int main() {
     }
 
     // Posicionamento de dois navios
+
     // Navil 1 - Horizontal (linha 1, colunas de 1 a 3)
 
-    int linha1 = 1;
+    int linha_h = 1;
+    printf("Posicionamento navio horizontal na linha %d (colunas 1 a 3)...\n", linha_h);
     for (int j = 1; j < 3; j++){
-        tabuleiro[linha1][j] = 1;
-        printf("Navil Horizontal -> Coordenada: (%d, %d)\n", linha1, j);
+        if (tabuleiro[linha_h][j] == 0){
+            tabuleiro[linha_h][j] = 1;
+            printf("Navil Horizontal -> Coordenada: (%d, %d)\n", linha_h, j);
+        }
     }
 
     // Navio 2 - Vertical (coluna 2, linhas de 2 a 4)
 
-    int coluna2 = 2;
+    int coluna_v = 2;
+    printf("Posicionamento navio vertical na coluna %d (linhas 2 a 4)...\n", coluna_v);
     for (int i = 2; i <= 4; i++){
-        tabuleiro[i][coluna2] = 2;
-        printf("Navio Vertical -> Coordenada: (%d, %d)\n", i, coluna2);
+        if (tabuleiro[i][coluna_v] == 0)
+            tabuleiro[i][coluna_v] = 2;
+        printf("Navio Vertical -> Coordenada: (%d, %d)\n", i, coluna_v);
+    }
+
+    // Exibicao do tabuleiro
+    printf("\nTabuleiro (5x5):\n");
+    printf("Legenda: 0=vazio | 1=horizontal | 2=vertical | 3=sobreposicao\n\n");
+
+    for (int i = 0; i < linhas; i++){
+        for (int j = 0; j < colunas; j++){
+            printf("%d", tabuleiro[i][j]);
+        }
+        printf("\n");
     }
 
     return 0;
